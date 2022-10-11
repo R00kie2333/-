@@ -1,0 +1,31 @@
+debug:
+server:
+  port: 7080
+  contextPath: /sonc-webapp-xc
+security:
+  user:
+    password: none
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://hssl.xincheng.com:9080/resource-service-xc/
+    user:
+      path: /user/**
+      url: http://hssl.xincheng.com:9080/resource-service-xc/user-xc
+spring:
+  oauth2:
+    sso:
+      home:
+        secure: false
+        path: /,/**/*.html
+    client:
+      accessTokenUri: http://hssl.xincheng.com:9080/auth-service-xc/oauth-xc/token-xc
+      userAuthorizationUri: http://hssl.xincheng.com:9080/auth-service-xc/oauth-xc/authorize-xc
+      clientId: soncui
+      clientSecret: soncui
+    resource:
+      userInfoUri: http://hssl.xincheng.com:9080/resource-service-xc/user-xc
+logging:
+  level:
+    org.springframework.security: DEBUG

@@ -1,0 +1,15 @@
+server:
+ port: 8080
+ contextPath: /resource-service-xc
+oauth2:
+ resource:
+ userInfoUri: http://hssl.xincheng.com:9080/auth-service-xc/user-xc
+logging:
+ level:
+  org.springframework.security: DEBUG
+auth:
+ server:
+  url: http://hssl.xincheng.com:9080/auth-service-xc/oauth-xc/check_token_xc/
+  clientId: soncrserv
+  clientsecret: soncrserv
+  
